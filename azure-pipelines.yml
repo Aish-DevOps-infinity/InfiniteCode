@@ -1,0 +1,22 @@
+trigger: none
+
+pr:
+  branches:
+    include:
+      - main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- script: |
+    echo "PR validation started"
+    echo "Branch: $(Build.SourceBranch)"
+    echo "Build ID: $(Build.BuildId)"
+  displayName: "PR Build Validation"
+
+- script: |
+    echo "Running test..."
+    sleep 5
+    echo "Validation successful"
+  displayName: "Run validation"
